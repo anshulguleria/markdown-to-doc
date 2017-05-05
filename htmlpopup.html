@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+
+<style>
+  .box-border {
+    border: solid thin grey;
+    max-height: 300px;
+    overflow: auto;
+    padding: 5px;
+  }
+
+  .footer {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+</style>
+
+<script>
+  function closeDialog() {
+    // Ask script to close dialog
+    google.script.host.close();
+  }
+
+  function handleReplaceClick() {
+    var richText = document.querySelector('.js_html_preview')
+    .innerText;
+    google.script.run
+    .withSuccessHandler(closeDialog)
+    .replaceWithRichText(richText);
+  }
+</script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+<div class="js_html_preview box-border">
+  <?!= html_text ?>
+</div>
+
+<div class="footer">
+  <button type="button"
+          onclick="google.script.host.close()"> Close </button>
+  <p class="gray">(Copy the above and paste in doc to use.)</p>
+  <!--<button type="button" class="action"
+          onclick="handleReplaceClick()">Replace with HTML</button>-->
+</div>
+
+
+
+
