@@ -118,7 +118,7 @@ var cachedConverter = null;
 
 function getConverter () {
     if(!cachedConverter) {
-        cachedConverter = new showdown.Converter();
+        cachedConverter = new showdown.Converter({"tables": true});
     }
 
     return cachedConverter;
